@@ -1,0 +1,76 @@
+{% extends 'AppCorredoresRiojaBundle:Corredores:zonacorredores.html.twig' %}
+{% block content %}
+    
+<div class="centro">
+    <h1>{{carrera.nombre}}</h1>
+    <div class="parteCelda">
+        <img src="/bundles/appcorredoresrioja/images/foto59ccd760d264e.jpg"/>
+    </div>
+    <div class="parteCelda2">
+        <p>{{carrera.nombre}}</p>
+        <p>Fecha celebración: {{carrera.fechaCelebracion | date('d/m/Y')}}
+        <p>Distancia: {{carrera.distancia}}</p>
+        <p>Organiza: {% if carrera.organizacion %}<a href="#">{{carrera.organizacion.nombre}}</a>{% endif %}</p>  
+    </div>
+</div>
+<div class="clear"></div>   
+{% if "now"|date('Y-m-d') <= carrera.fechaCelebracion|date('Y-m-d') %}
+<div class="centro">
+    {% if "now"|date('Y-m-d') <= carrera.fechaLimiteInscripcion|date('Y-m-d') and participantes|length != carrera.numeroMaximoParticipantes%}
+        <h3>Tienes hasta el  {{carrera.fechaLimiteInscripcion | date('d/m/Y')}} para inscribirte. </h3>
+         <div style="float:right; padding:10px 5px">
+             <a style="padding:5px 8px 5px 10px;background:#5C7E6D;color:#FFF" 
+                           href="{{ path('app_corredores_rioja_apuntarse', {'idCarrera':carrera.id}) }}" ><span>{{ 'carreras.inscribete' | trans }}</span> </a>
+             </div>
+        {% else %}
+            <h3>Lo sentimos, ya no te puedes inscribir a esta carrera.</h3>   
+            {% endif %}
+    
+   
+    
+    <div class="clear"></div>   
+    <h3>Inscritos:</h3>
+     {% for participante in participantes %}
+                        {{participante.corredor.nombre}} {{participante.corredor.apellidos}} <br/>
+            {% endfor %}
+
+
+
+</div>
+
+    {% else %}
+    
+<div class="centro">
+    <h3>Clasificación:</h3>   
+    <table>
+        <thead>
+            <tr>
+                <th>Posición</th>
+                <th>Nombre</th>
+                <th>Tiempo</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for participante in participantes %}
+                <tr>
+                    <td>
+                        {{loop.index}}
+                    </td>
+                    <td>   
+                        {{participante.corredor.nombre}} {{participante.corredor.apellidos}} <br/>
+                    </td>
+                    <th>
+                        {{participante.tiempo}}
+                    </th>
+                </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+</div>
+            {% endif %}
+
+<div class="clear"> </div>   
+
+{% endblock %}

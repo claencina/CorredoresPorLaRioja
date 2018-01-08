@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="es" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>menu.zona_corredores</source>
+                <target>Runners Area</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>menu.zona_organizadores</source>
+                <target>Organizer Area</target>
+            </trans-unit>
+            <trans-unit id="3">
+                <source>menu.intranet</source>
+                <target>Intranet</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>menu.lenguaje_en</source>
+                <target>English</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>menu.lenguaje_es</source>
+                <target>Spanish</target>
+            </trans-unit>
+            <trans-unit id="6">
+                <source>menu.contacto</source>
+                <target>Contact</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>zona_corredores.portada</source>
+                <target>Home</target>
+            </trans-unit>
+            <trans-unit id="8">
+                <source>zona_corredores.carreras</source>
+                <target>Races</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>zona_corredores.mis_carreras</source>
+                <target>My races</target>
+            </trans-unit>
+            <trans-unit id="10">
+                <source>zona_corredores.perfil</source>
+                <target>Profile</target>
+            </trans-unit>
+            <trans-unit id="11">
+                <source>zona_corredores.login</source>
+                <target>Login</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>zona_corredores.logout</source>
+                <target>Logout</target>
+            </trans-unit>
+            <trans-unit id="13">
+                <source>registro.titulo</source>
+                <target>New runner</target>
+            </trans-unit>
+            <trans-unit id="14">
+                <source>portada.titulo</source>
+                <target>Welcome to Carreras por La Rioja</target>
+            </trans-unit>
+            <trans-unit id="15">
+                <source>portada.texto</source>
+                <target>Carreras por La Rioja is a website where riders of all levels can register for races organized in La Rioja. Below are some of the careers you can sugn up for.</target>
+            </trans-unit>
+            <trans-unit id="16">
+                <source>perfil.titulo</source>
+                <target>Profile runner</target>
+            </trans-unit>
+            <trans-unit id="17">
+                <source>carreras.disputadas</source>
+                <target>Races disputed</target>
+            </trans-unit>
+            <trans-unit id="18">
+                <source>carreras.no_disputadas</source>
+                <target>Races to dispute</target>
+            </trans-unit>            
+            <trans-unit id="19">
+                <source>carreras.desapuntarse</source>
+                <target>Disengage</target>
+            </trans-unit> 
+            <trans-unit id="20">
+                <source>carreras.clasificacion</source>
+                <target>Classification</target>
+            </trans-unit>   
+            <trans-unit id="21">
+                <source>carreras.inscribete</source>
+                <target>Sign up</target>
+            </trans-unit>
+            <trans-unit id="22">
+                <source>login.titulo</source>
+                <target>Access of registered runners</target>
+            </trans-unit>
+            <trans-unit id="23">
+                <source>login.contraseña</source>
+                <target>Password</target>
+            </trans-unit>
+            <trans-unit id="24">
+                <source>login.nuevo_corredor</source>
+                <target>To register for the races, it is necessary to register.</target>
+            </trans-unit>
+            <trans-unit id="25">
+                <source>login.registrar</source>
+                <target>REGISTER</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

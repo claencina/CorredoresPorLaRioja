@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" lang="es-ES">
+        <title>{% block title %} Bienvenido a Carreras por La Rioja {% endblock %}</title>
+        <meta name="description" content="Aplicación de prueba de Desarrollo de Aplicaciones para Internet; Máster en Informática; Universidad de La Rioja." lang="es-ES">
+
+        <link rel="alternate" href="http://localhost:8000/corredores/es/" hreflang="es-es" />
+        <link rel="alternate" href="http://localhost:8000/runners/en/" hreflang="en" />
+
+        {% block stylesheets%}
+            <link rel="stylesheet" href="{{ asset('bundles/appcorredoresrioja/css/carrerasrioja.css') }}"/>
+        {% endblock%}​
+    </head>
+    <body>
+        <div class="logo">Carreras por La Rioja</div>
+        <div class="sombra">
+            <div class="nucleo">
+                <div id="lang">
+                    {% set locale = app.request.locale %}
+                    {% if locale == 'es' %}
+                        <span>Español</span>
+                        <a href="{{ path(app.request.get('_route'), { '_locale': 'en' }) }}">{{ 'menu.lenguaje_en' | trans }}</a>
+                    {% elseif locale == 'en' %}
+                        <a href="{{ path(app.request.get('_route'), { '_locale': 'es' }) }}">{{ 'menu.lenguaje_es' | trans }}</a>
+                        <span>English</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="barra_menus">	
+            <div class="pestanias">
+                <div class="grupoPestanias">
+                    <div class="pestaniaSel"><a href="{{ path('app_corredores_rioja_homepage') }}">{{ 'menu.zona_corredores' | trans }}</a></div>
+                    <div class="pestaniaNoSel"><a href="#">{{ 'menu.zona_organizadores' | trans }}</a></div>
+                    <div class="pestaniaNoSel"><a href="#">{{ 'menu.intranet' | trans }}</a></div>
+                </div>
+            </div>
+
+        {% block body %}{% endblock %}
+
+
+        <div class="clear"></div>  
+        <div class="separa"></div>
+
+        <div class="pie">
+            <span class="pie_izda">
+                <a href="mailto:crlaenci@unirioja.es">{{ 'menu.contacto' | trans }}</a> </span>
+            <span class="pie_dcha">
+                &copy; 2017 Cristina Laencina Fernández  </span>
+            <div class="clear"></div>  
+        </div>
+</body>
+</html>

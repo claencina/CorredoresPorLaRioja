@@ -1,0 +1,86 @@
+   
+app_corredores_rioja_homepage:
+    locales:
+        es: /
+        en: /
+    defaults: { _controller: corredorescontroller:listaCarrerasAction }
+    requirements:
+        _locale: en|es
+
+app_corredores_rioja_carreras:
+    locales:
+        es: /carreras
+        en: /races
+    defaults: { _controller: corredorescontroller:carrerasAction }
+    requirements:
+        _locale: en|es
+
+app_corredores_rioja_detalleCarrera:
+    path: /carrera/{slug}
+    defaults: { _controller: corredorescontroller:detalleCarreraAction, slug: null }
+    requirements:
+        _locale: en|es
+
+app_corredores_rioja_detalleOrganizacion:
+    locales:
+        es: /organizacion/slug
+        en: /organization/slug
+    defaults: { _controller: corredorescontroller:detalleOrganizacionAction }
+    requirements:
+        _locale: en|es
+    
+app_corredores_rioja_login:
+    path:     /login
+    defaults: { _controller: corredorescontroller:loginAction }
+    requirements:
+        _locale: en|es
+    
+app_corredores_rioja_login_check:
+    path: /login_check
+    requirements:
+        _locale: en|es
+    
+app_corredores_rioja_logout:
+    path: /logout
+    requirements:
+        _locale: en|es
+    
+app_corredores_rioja_registro:
+    path:     /registro
+    defaults: { _controller: corredorescontroller:registroAction }
+    requirements:
+        _locale: en|es
+    
+app_corredores_rioja_misCarreras:
+    locales:
+        es: /miscarreras
+        en: /myraces
+    defaults: { _controller: corredorescontroller:misCarrerasAction }
+    requirements:
+        _locale: en|es
+    
+app_corredores_rioja_perfil:
+    locales:
+        es: /perfil
+        en: /profile
+    defaults: { _controller: corredorescontroller:perfilCorredorAction }
+    requirements:
+        _locale: en|es
+
+app_corredores_rioja_desapuntarse:
+    path: /desapuntar/{id}
+    defaults: { _controller: corredorescontroller:desapuntarAction }
+    requirements:
+        _locale: en|es
+    
+app_corredores_rioja_apuntarse:
+    path: /apuntar/{idCarrera}
+    defaults: { _controller: corredorescontroller:apuntarAction }
+    requirements:
+        _locale: en|es
+        
+
+    
+    
+
+    

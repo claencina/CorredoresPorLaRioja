@@ -1,0 +1,18 @@
+{# Extendemos la plantilla base #}
+{% extends 'AppCorredoresRiojaBundle:Corredores:zonacorredores.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/appcorredoresrioja/css/formulario.css') }}"/>
+{% endblock %}
+
+{% block content %}
+<div class="clear"> </div>   
+<h1>{{ 'perfil.titulo' | trans }}</h1>
+<form action="{{ path('app_corredores_rioja_perfil') }}" method="post" {{ form_enctype(formulario) }}>
+	{{ form_widget(formulario) }}
+</form>
+
+<div class="clear"> </div>   
+
+{% endblock %}

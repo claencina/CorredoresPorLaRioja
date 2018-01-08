@@ -1,0 +1,67 @@
+{# Extendemos la plantilla base #}
+{% extends 'AppCorredoresRiojaBundle:Corredores:zonacorredores.html.twig' %}
+{% block content %}
+
+{% if carrerasNoDisputadas %}
+<h1>{{ 'carreras.no_disputadas' | trans }}</h1>
+{% endif %}
+<div class="centro"/>
+<ul>
+    <li class="columna">
+        <ul>
+            {% for carreraNoDisputada in carrerasNoDisputadas %}
+
+            <li class="celda">
+                <div class="parteCelda">
+                    <img src="/bundles/appcorredoresrioja/images/foto59ccd7422b0f3.jpg"/>
+                </div>
+                <div class="parteCelda2">
+                    <h3><a href="{{ path('app_corredores_rioja_detalleCarrera', {'slug':carreraNoDisputada.slug}) }}">{{carreraNoDisputada.nombre}}</a></h3>
+                    <p>{{carreraNoDisputada.fechaCelebracion | date('d/m/Y')}}</p>
+                    {% if carreraNoDisputada.inscribirse %}
+                    <div style="float:right; padding:10px 5px">
+                        <a style="padding:5px 8px 5px 10px;background:#5C7E6D;color:#FFF" 
+                           href="{{ path('app_corredores_rioja_apuntarse', {'idCarrera':carreraNoDisputada.id}) }}" ><span>{{ 'carreras.inscribete' | trans }}</span> </a>
+                    </div>
+                    {% endif %}
+                </div>    
+            </li>
+            {% endfor %}
+        </ul>
+        
+    </li>
+    
+</ul>
+
+</div>
+
+<div class="clear"></div>   
+{% if carrerasDisputadas %}
+<h1>{{ 'carreras.disputadas' | trans }}</h1>
+{% endif %}
+<div class="centro"/>
+<ul>
+    <li class="columna">
+        <ul>
+            {% for carreraDisputada in carrerasDisputadas %}
+            <li class="celda">
+                <div class="parteCelda">
+                    <img src="/bundles/appcorredoresrioja/images/foto59ccd760d264e.jpg"/>
+                </div>
+                <div class="parteCelda2">
+                    <h3><a href="{{ path('app_corredores_rioja_detalleCarrera', {'slug':carreraDisputada.slug}) }}">{{carreraDisputada.nombre}}</a></h3>
+                    <p>{{carreraDisputada.fechaCelebracion | date('d/m/Y')}}</p>
+                    <div style="float:right; padding:10px 5px">
+                        <a style="padding:5px 8px 5px 10px;background:#5C7E6D;color:#FFF" 
+                           href="{{ path('app_corredores_rioja_detalleCarrera', {'slug':carreraDisputada.slug}) }}" ><span>{{ 'carreras.clasificacion' | trans }}</span> </a>
+                    </div>
+                </div>    
+            </li>
+            {% endfor %}
+        </ul>
+    </li>
+</ul>
+</div>
+<div class="clear"></div>  
+
+{% endblock %}

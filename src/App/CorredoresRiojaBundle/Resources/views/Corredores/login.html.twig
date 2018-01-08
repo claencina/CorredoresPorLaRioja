@@ -1,0 +1,43 @@
+{# Extendemos la plantilla base #}
+{% extends 'AppCorredoresRiojaBundle:Corredores:zonacorredores.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/appcorredoresrioja/css/entrada.css') }}"/>
+{% endblock %}
+
+{% block content %}
+<div class="clear"> </div>   
+
+<h1>{{ 'login.titulo' | trans }}</h1>
+
+{% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+
+<form action="{{ path('app_corredores_rioja_login_check') }}" method="post" class="izda">
+    <label for="username">DNI:</label>
+    <input type="text" id="username" name="_username" value="{{ last_username }}" /> <br/>
+
+    <label for="password">{{ 'login.contraseña' | trans }}:</label>
+    <input type="password" id="password" name="_password" /><br/>
+
+    <button type="submit">{{ 'zona_corredores.login' | trans }}</button>
+</form>
+
+
+<div class="nuevo izda">
+    <div>
+        <p style="font-weight:bold; margin-top:5px">{{ 'registro.titulo' | trans }}</p>
+        <p style="margin-top:5px;line-height:1.4em;">{{ 'login.nuevo_corredor' | trans }}</p>
+    </div>
+
+    <div  class="registrob">
+        <a href="{{ path('app_corredores_rioja_registro') }}">{{ 'login.registrar' | trans }}</a>
+    </div> 
+</div>	     
+
+
+<div class="clear"> </div>   
+
+{% endblock %}

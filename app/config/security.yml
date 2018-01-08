@@ -1,0 +1,57 @@
+# To get started with security, check out the documentation:
+# https://symfony.com/doc/current/security.html
+security:
+
+    # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+    providers:
+        corredores:
+            id: corredores_user_provider
+
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        default:
+            anonymous: ~
+            http_basic: ~
+            form_login:
+                login_path: app_corredores_rioja_login
+                check_path: app_corredores_rioja_login_check
+                default_target_path: app_corredores_rioja_homepage
+                               
+            logout:
+                path:   app_corredores_rioja_logout
+                target: app_corredores_rioja_homepage
+                
+            provider: corredores
+
+                
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            anonymous: ~
+            # activate different ways to authenticate
+
+            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+            #http_basic: ~
+
+            # https://symfony.com/doc/current/security/form_login_setup.html
+            #form_login: ~
+            
+    encoders:
+        App\CorredoresRiojaDomain\Model\Corredor : 
+            algorithm: bcrypt
+            cost:  	12
+        App\CorredoresRiojaBundle\Security\CorredorUser:
+            algorithm: bcrypt
+            cost:  	12
+            
+    access_control:
+        - { path: ^/(es|en)/corredores/miscarreras, roles: ROLE_CORREDOR }
+        - { path: ^/(es|en)/corredores/perfil, roles: ROLE_CORREDOR }
+        - { path: ^/(es|en)/corredores/myraces, roles: ROLE_CORREDOR }
+        - { path: ^/(es|en)/corredores/desapuntar, roles: ROLE_CORREDOR }
+        - { path: ^/(es|en)/corredores/apuntar, roles: ROLE_CORREDOR }
+           
+        
+

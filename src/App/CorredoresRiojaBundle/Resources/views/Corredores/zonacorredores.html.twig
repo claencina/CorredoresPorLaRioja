@@ -1,0 +1,50 @@
+{# Extendemos la plantilla base #}
+{% extends 'AppCorredoresRiojaBundle:Base:base.html.twig' %}
+
+{# Bloque título #}
+{% block title %} Corredores {% endblock %}
+
+{# El bloque del cuerpo #}
+{% block body %}
+<div id="menu" >
+    <ul>
+        <li>
+            <a href="{{ path('app_corredores_rioja_homepage') }}">{{ 'zona_corredores.portada' | trans }}<br/></a>
+        </li>
+        <li>
+            <a href="{{ path('app_corredores_rioja_carreras') }}">{{ 'zona_corredores.carreras' | trans }}<br/></a>
+        </li>
+        <li>
+            <a href="{{ path('app_corredores_rioja_misCarreras') }}">{{ 'zona_corredores.mis_carreras' | trans }}<br/></a>
+        </li>
+        {% if not is_granted ( 'IS_AUTHENTICATED_FULLY' ) %}
+        <li>
+            <a href="{{ path('app_corredores_rioja_login') }}">{{ 'zona_corredores.login' | trans }}<br/></a>
+        </li>
+        {% endif %}
+        {% if is_granted ( 'IS_AUTHENTICATED_FULLY' ) %}
+        <li>
+            <a href="{{ path('app_corredores_rioja_perfil') }}">{{ 'zona_corredores.perfil' | trans }}</a>
+        </li>
+        {% endif %}
+        {% if is_granted ( 'IS_AUTHENTICATED_FULLY' ) %}
+        <li>
+            <a href="{{ path('app_corredores_rioja_logout') }}">{{ 'zona_corredores.logout' | trans }}</a>
+        </li>
+        {% endif %}
+    </ul>
+    <div style="clear: left;"></div>
+</div>
+</div>
+<div class="sombra">
+    <div class="nucleo">
+        <div id="migas">
+            <div class="clear"></div> 
+
+        </div>
+        <div class="contenido">
+            {% block content %}{% endblock %}
+        </div>
+{% endblock %}
+
+

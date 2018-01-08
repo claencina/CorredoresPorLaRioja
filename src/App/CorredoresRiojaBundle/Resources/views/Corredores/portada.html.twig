@@ -1,0 +1,39 @@
+{# Extendemos la plantilla base #}
+{% extends 'AppCorredoresRiojaBundle:Corredores:zonacorredores.html.twig' %}
+{% block content %}
+
+{% for mensaje in app.session.flashbag.get('info') %}
+   	<p clas="info">{{ mensaje }}</p>
+{% endfor %}
+
+
+
+
+    <h1>{{ 'portada.titulo' | trans }}</h1>
+    <p>{{ 'portada.texto' | trans }}</p>
+
+    <div class="centro"/>
+    <ul>
+        {% for carrera in carreras %}
+        <li class="columna">
+            <ul>
+
+                <li class="celda">
+                    <div class="parteCelda">
+                        <img src="/bundles/appcorredoresrioja/images/anguiano.jpg"/>
+                    </div>
+                    <div class="parteCelda2">
+                        <h3><a href="{{ path('app_corredores_rioja_detalleCarrera', {'slug':carrera.slug}) }}">{{carrera.nombre}}</a></h3>
+                       <p>{{carrera.fechaCelebracion | date('d/m/Y')}}</p>
+                       <a style="padding:5px 8px 5px 10px;background:#5C7E6D;color:#FFF" 
+                           href="{{ path('app_corredores_rioja_apuntarse', {'idCarrera':carrera.id}) }}" ><span>{{ 'carreras.inscribete' | trans }}</span> </a>
+                    </div>    
+                </li>
+            </ul>
+        </li>
+        {% endfor %}
+    </ul>
+
+
+</div>
+{% endblock %}
